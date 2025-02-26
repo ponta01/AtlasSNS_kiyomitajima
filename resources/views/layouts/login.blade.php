@@ -14,11 +14,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Scripts -->
+   <title>jQuery Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!--サイトのアイコン指定-->
-  <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
+  <link rel="icon" href="{{ url('images/icon1.png') }}" sizes="16x16" type="image/png" />
+  <link rel="icon" href="{{ url('images/icon2.png') }}" sizes="32x32" type="image/png" />
+  <link rel="icon" href="{{ url('images/icon3.png') }}" sizes="48x48" type="image/png" />
+  <link rel="icon" href="{{ url('images/icon4.png') }}" sizes="62x62" type="image/png" />
   <!--iphoneのアプリアイコン指定-->
   <link rel="apple-touch-icon-precomposed" href="画像のURL" />
   <!--OGPタグ/twitterカード-->
@@ -35,26 +37,26 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p>〇〇さんの</p>
+        <p> さんの</p>
         <div>
           <p>フォロー数</p>
-          <p>〇〇名</p>
+          <p> 名</p>
         </div>
-        <p class="btn"><a href="">フォローリスト</a></p>
+        <p class="btn"><a href="follow/followList">フォローリスト</a></p>
         <div>
           <p>フォロワー数</p>
-          <p>〇〇名</p>
+          <p>名</p>
         </div>
-        <p class="btn"><a href="">フォロワーリスト</a></p>
+        <p class="btn"><a href="follow/followerList">フォロワーリスト</a></p>
       </div>
-      <p class="btn"><a href="">ユーザー検索</a></p>
+      <p class="btn"><a href="users/search">ユーザー検索</a></p>
     </div>
   </div>
   <footer>
   </footer>
   <script src="{{ asset('js/app.js') }}"></script>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
 
 </html>

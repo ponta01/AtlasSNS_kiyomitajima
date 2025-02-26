@@ -31,7 +31,7 @@
             {{ $slot }}
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="JavaScriptファイルのURL"></script>
-        <script src="JavaScriptファイルのURL"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
     </body>
 </html>

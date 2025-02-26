@@ -32,4 +32,27 @@ class AuthenticatedSessionController extends Controller
         return redirect()->intended('top');
     }
 
+
+
+    // ログアウトする
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Handle an incoming authentication request.
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/top');
+    }
+
+
 }

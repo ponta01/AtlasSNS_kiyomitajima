@@ -3,6 +3,11 @@
 {!! Form::open(['url' => '/register']) !!}
 
 <h2>新規ユーザー登録</h2>
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <p>{{ $error }}</p>
+    @endforeach
+@endif
 
 {{ Form::label('ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input']) }}

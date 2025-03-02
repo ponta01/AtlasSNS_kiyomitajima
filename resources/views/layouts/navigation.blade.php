@@ -11,7 +11,7 @@
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#menu1" aria-expanded="true">
                 </button>
             </h2>
-            <div id="menu1" class="accordion-collapse collapse show">
+            <div id="menu1" class="accordion-collapse">
                 <div class="accordion-body">
                     <p>さん</p>
                 </div>

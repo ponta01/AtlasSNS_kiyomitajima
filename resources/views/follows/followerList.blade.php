@@ -11,8 +11,8 @@
     <header>
     </header>
     <main>
-        <a href="/followList.blade">フォロワーリスト</a>
-        <form action="/submit-post" method="POST">
+        <a href="{{ asset('/followList.blade') }}">フォロワーリスト</a>
+        <form action="{{ asset('/submit-post') }}" method="POST">
             @csrf
             <div>
                 <label for="title">タイトル:</label>
@@ -32,8 +32,5 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-  <h2>機能を実装していきましょう。</h2>
 
 </x-login-layout>

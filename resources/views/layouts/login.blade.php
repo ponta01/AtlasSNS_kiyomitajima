@@ -14,8 +14,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Scripts -->
-   <title>jQuery Example</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+
   <!--サイトのアイコン指定-->
   <link rel="icon" href="{{ url('images/icon1.png') }}" sizes="16x16" type="image/png" />
   <link rel="icon" href="{{ url('images/icon2.png') }}" sizes="32x32" type="image/png" />
@@ -42,14 +43,14 @@
           <p>フォロー数</p>
           <p> 名</p>
         </div>
-        <p class="btn"><a href="follow/followList">フォローリスト</a></p>
+        <p class="btn"><a href="{{ asset('follow/followList') }}">フォローリスト</a></p>
         <div>
           <p>フォロワー数</p>
           <p>名</p>
         </div>
-        <p class="btn"><a href="follow/followerList">フォロワーリスト</a></p>
+        <p class="btn"><a href="{{ asset('follower/followerList') }}">フォロワーリスト</a></p>
       </div>
-      <p class="btn"><a href="users/search">ユーザー検索</a></p>
+      <p class="btn"><a href="{{ asset('users/search') }}">ユーザー検索</a></p>
     </div>
   </div>
   <footer>

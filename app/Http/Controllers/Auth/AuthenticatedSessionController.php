@@ -37,7 +37,7 @@ class AuthenticatedSessionController extends Controller
     // ログアウトする
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('auth')->except('logout');
     }
 
     /**
@@ -45,10 +45,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->guard()->logout();
+        Auth::logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect('/top');

@@ -32,9 +32,13 @@ Route::middleware('auth')->group(function () {
     return view('auth.added');
   })->name('user.success');
   Route::post('logout', [PostsController::class, 'index']);
+  Route::post('logout', [AuthenticatedSessionController::class, 'logout']);
 
-  Route::get('posts/index', [PostController::class, 'index']);
+  Route::get('posts/index', [PostsController::class, 'index']);
   Route::get('profiles/profile', [ProfileController::class, 'profile']);
   Route::get('profile/logout', [AuthenticatedSessionController::class, 'logout']);
+
+  Route::get('/followList.blade', [FollowsController::class, 'followList']);
+  Route::get('/followerList.blade', [FollowsController::class, 'followerList']);
 
 });

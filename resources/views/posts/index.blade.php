@@ -14,15 +14,14 @@
         <form action="/submit-post" method="POST">
             @csrf
             <div>
-                <label for="title">タイトル:</label>
-                <input type="text" id="title" name="title" required>
+                <!-- アイコン画像のみのラベル -->
+                <img src="images/icon1.png" style="width: 40px; height: 40px;">
+                <textarea id="content" name="content" rows="5" placeholder="投稿内容を入力してください。" required></textarea>
             </div>
             <div>
-                <label for="content">内容:</label>
-                <textarea id="content" name="content" rows="5" required></textarea>
-            </div>
-            <div>
-                <button type="submit">投稿</button>
+                <button type="submit">
+                    <img src="images/post.png" style="width: 40px; height: 40px;">
+                </button>
             </div>
         </form>
     </main>

@@ -15,10 +15,10 @@
         <!--スマホ,タブレット対応-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--サイトのアイコン指定-->
-        <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
-        <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
-        <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
-        <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
+        <link rel="icon" href="{{ url('images/icon5.png') }}" sizes="16x16" type="image/png" />
+        <link rel="icon" href="{{ url('images/icon6.png') }}" sizes="32x32" type="image/png" />
+        <link rel="icon" href="{{ url('images/icon7.png') }}" sizes="48x48" type="image/png" />
+        <link rel="icon" href="{{ url('images/icon8.png') }}" sizes="62x62" type="image/png" />
         <!--iphoneのアプリアイコン指定-->
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     </head>

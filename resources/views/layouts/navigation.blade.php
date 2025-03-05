@@ -8,7 +8,7 @@
                 <!-- <div id=""> -->
                 <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#menu1" aria-expanded="true">
+                <button class="accordion-button" type="button">
                 </button>
             </h2>
             <div id="menu1" class="accordion-collapse">
@@ -16,9 +16,9 @@
                     <p>さん</p>
                 </div>
                 <ul>
-                    <li class="accordion-item"><a href="{{ url('posts/index') }}">HOME</a></li>
-                    <li class="accordion-item"><a href="{{ url('profiles/profile') }}">プロフィール編集</a></li>
-                    <li class="accordion-item"><a href="{{ url('profile/logout') }}">ログアウト</a></li>
+                    <li class="accordion-item"><a href="{{ url('top') }}">HOME</a></li>
+                    <li class="accordion-item"><a href="{{ url('profile') }}">プロフィール編集</a></li>
+                    <li class="accordion-item"><a href="{{ url('logout') }}">ログアウト</a></li>
                 </ul>
             </div>
         </div>

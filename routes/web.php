@@ -5,6 +5,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\FollowsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +16,6 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
 
 require __DIR__ . '/auth.php';
 Route::middleware('auth')->group(function () {
@@ -31,14 +30,11 @@ Route::middleware('auth')->group(function () {
   Route::get('added', function () {
     return view('auth.added');
   })->name('user.success');
-  Route::post('logout', [PostsController::class, 'index']);
-  Route::post('logout', [AuthenticatedSessionController::class, 'logout']);
-
-  Route::get('posts/index', [PostsController::class, 'index']);
-  Route::get('profiles/profile', [ProfileController::class, 'profile']);
-  Route::get('profile/logout', [AuthenticatedSessionController::class, 'logout']);
+  Route::get('logout', [AuthenticatedSessionController::class, 'logout']);
 
   Route::get('/followList.blade', [FollowsController::class, 'followList']);
   Route::get('/followerList.blade', [FollowsController::class, 'followerList']);
+
+  Route::post('/follow', [FollowsController::class, 'followUser'])->name('follow-user');
 
 });

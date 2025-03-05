@@ -11,6 +11,32 @@ header {
 
 /* main content */
 
+.post {
+    text-align: center;
+    position: relative;
+}
+
+.post img {
+    float: left;
+    /* アイコン画像を左に移動 */
+    margin-right: 10px;
+    /* テキストエリアとの間に余白を追加 */
+}
+
+.post textarea {
+    display: block;
+    /* ブロック要素として表示 */
+    width: calc(100% - 50px);
+    /* テキストエリアの幅を調整 */
+    border-bottom: 5px solid #727272;
+    /* もっと下にいれたいから明日以降考える */
+}
+
+.submit {
+    float: right;
+    margin: 0px 10px 20px 0px;
+}
+
 #row {
     display: flex;
     flex-flow: row wrap;
@@ -26,7 +52,7 @@ header {
 }
 
 .accordion-button {
-    background-color: #007bff;
+    background-color: #186AC9;
     color: white;
     border: none;
     cursor: pointer;
@@ -37,17 +63,22 @@ header {
     position: relative;
 }
 
+.accordion-collapse {
+    display: none;
+}
+
 .accordion-button::after {
-    content: "▼";
+    content: "＾";
     /* 矢印を下向きに表示 */
     position: absolute;
     right: 20px;
     font-size: 1.2em;
     transition: transform 0.3s ease;
+    transform: rotate(180deg);
 }
 
 .accordion-button.collapsed::after {
-    transform: rotate(180deg);
+    transform: rotate(0deg);
     /* 矢印を上下反転させる */
 }
 

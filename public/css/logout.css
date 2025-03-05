@@ -4,34 +4,49 @@ html {
     height: 100%;
 }
 
-section {
+/* section {
     background-color: #ccd8ff;
     padding: 50px 0;
-}
+} */
 
-div {
+/* div {
     width: 100px;
     height: 100px;
     background-color: #4773ff;
     margin: 0 auto;
-}
+} */
 
 body {
     height: 100%;
-    background: #186AC9;
+    background-image: linear-gradient(0deg, #ffe32d 0%, #227acc 100%);
+    color: #ffffff;
+    text-align: center;
 }
 
-div {
+/* div {
     height: 100vh;
     background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    background-image: linear-gradient(0deg, #ffe32d 0%, #227acc 100%);
 }
 
-div {
-    margin-bottom: 20px;
+.welcome-message {
+    height: 100%;
+    background: #186AC9;
+    color: #ffffff;
+    text-align: center;
+}*/
+
+.register-link a {
+    color: #ffffff;
 }
+
+/* div {
+    margin-bottom: 20px;
+} */
 
 label,
 input {
     display: block;
+    /* justify-content: center; */
+    /* color: #ffffff; */
 }

@@ -52,8 +52,8 @@
       <p class="btn"><a href="{{ asset('users/search') }}">ユーザー検索</a></p>
     </div>
   </div>
-  <footer>
-  </footer>
+  <!-- <footer>
+  </footer> -->
   <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
   <script src="{{ asset('js/bootstrap.js') }}"></script>

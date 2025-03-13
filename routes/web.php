@@ -18,23 +18,35 @@ use App\Http\Controllers\FollowsController;
 */
 
 require __DIR__ . '/auth.php';
+
 Route::middleware('auth')->group(function () {
 
+  // トップページ
   Route::get('top', [PostsController::class, 'index']);
+  // プロファイル
   Route::get('profile', [ProfileController::class, 'profile']);
-
+  // ユーザー検索
   Route::get('search', [UsersController::class, 'index']);
-  Route::get('follow-list', [PostsController::class, 'index']);
-
-  Route::get('follower-list', [PostsController::class, 'index']);
-  Route::get('added', function () {
-    return view('auth.added');
-  })->name('user.success');
-  Route::get('logout', [AuthenticatedSessionController::class, 'logout']);
-
-  Route::get('/followList.blade', [FollowsController::class, 'followList']);
-  Route::get('/followerList.blade', [FollowsController::class, 'followerList']);
+  // フォローとフォロワー
+  Route::get('follow-list', [FollowsController::class, 'followList']);
+  Route::get('follower-list', [FollowsController::class, 'followList']);
 
   Route::post('/follow', [FollowsController::class, 'followUser'])->name('follow-user');
 
+  // 投稿機能
+  Route::post('/post', [PostsController::class, 'store'])->name('post.store');
+  Route::post('/post/{id}/update', [PostsController::class, 'update'])->name('post.update');
+  Route::get('/post/{id}/delete',[PostsController::class, 'delete'])->name('post.delete');;
+
+  // ログアウト
+  Route::get('logout', [AuthenticatedSessionController::class, 'logout']);
+
+  // 登録後ページ
+  Route::get('added', function () {
+    return view('auth.added');
+  })->name('user.success');
+
 });
+
+  // Route::get('/followList.blade', [FollowsController::class, 'followList']);
+  // Route::get('/followerList.blade', [FollowsController::class, 'followerList']);

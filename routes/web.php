@@ -27,6 +27,9 @@ Route::middleware('auth')->group(function () {
   Route::get('profile', [ProfileController::class, 'profile']);
   // ユーザー検索
   Route::get('search', [UsersController::class, 'index']);
+  // 編集ページと更新処理
+  Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+  Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
   // フォローとフォロワー
   Route::get('follow-list', [FollowsController::class, 'followList']);
   Route::get('follower-list', [FollowsController::class, 'followList']);
@@ -36,7 +39,8 @@ Route::middleware('auth')->group(function () {
   // 投稿機能
   Route::post('/post', [PostsController::class, 'store'])->name('post.store');
   Route::post('/post/{id}/update', [PostsController::class, 'update'])->name('post.update');
-  Route::get('/post/{id}/delete',[PostsController::class, 'delete'])->name('post.delete');;
+  Route::get('/post/{id}/delete',[PostsController::class, 'delete'])->name('post.delete');
+  Route::post('/post/{id}/search',[PostsController::class, 'search'])->name('post.search');
 
   // ログアウト
   Route::get('logout', [AuthenticatedSessionController::class, 'logout']);

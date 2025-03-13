@@ -47,8 +47,15 @@ class User extends Authenticatable
     public function isFollowing($userId)
     {
     return Follow::where('following_id', $this->id)
-                 ->where('followed_id', $userId)
-                 ->exists();
+                ->where('followed_id', $userId)
+                ->exists();
     }
+
+//     データベースの準備 ユーザーデータベースにアイコン（画像）のファイルパスを保存するカラムを追加します。例えば、users テーブルに profile_image というカラムを持たせることができます。
+
+// マイグレーション例:
+//     Schema::table('users', function (Blueprint $table) {
+//     $table->string('profile_image')->nullable(); // アイコン用の画像パス
+// });
 
 }

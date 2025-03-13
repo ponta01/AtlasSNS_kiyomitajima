@@ -1,9 +1,13 @@
 <x-login-layout>
-  <form action="/search" method="post">
-            @csrf
-            <input type="text" name="keyword" class="form" placeholder="タイトルで検索">
-            <button type="submit" class="btn btn-success">検索</button>
-        </form>
+  <main>
+    <form action="/search" method="post">
+      @csrf
+        <input type="text" name="keyword" class="form" placeholder="ユーザー名">
+        <a href ="/search">
+          <img src="images/search.png" style="width: 40px; height: 40px;">
+        </a>
+    </form>
+  </main>
 
 
 </x-login-layout>

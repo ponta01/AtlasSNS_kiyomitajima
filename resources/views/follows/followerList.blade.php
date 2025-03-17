@@ -1,5 +1,19 @@
 <x-login-layout>
     <main>
+        @foreach ($followingId as $value)
+<tr>・
+    ・
+    <td></td>
+    ↓下記に修正
+    <td>{{ $value->followingId }}</td>
+・
+・
+</tr>
+@endforeach
+
+
+
+
         <a href="{{ asset('/followList.blade') }}">フォロワーリスト</a>
         <form action="{{ asset('/submit-post') }}" method="POST">
             @csrf

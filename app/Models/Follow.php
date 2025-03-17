@@ -10,20 +10,20 @@ class Follow extends Model
 {
     use HasFactory;
 
-    protected $table = 'follows';
+    // protected $table = 'follows';
 
-    protected $fillable = [
-        'following_id',
-        'followed_id',
-    ];
+    // protected $fillable = [
+    //     'following_id',
+    //     'followed_id',
+    // ];
     public function following()
     {
-        return $this->belongsTo(User::class, 'following_id');
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'followed_id');
     }
 
     public function followed()
     {
-        return $this->belongsTo(User::class, 'followed_id');
+        return $this->belongsToMany(User::class, 'followers', 'followed_id', 'follower_id');
     }
 
     // 自分のユーザーと紐ついているレコードが存在するかチェックするメソッド

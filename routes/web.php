@@ -26,10 +26,11 @@ Route::middleware('auth')->group(function () {
   // プロファイル
   Route::get('profile', [ProfileController::class, 'profile']);
   // ユーザー検索
+  Route::post('search', [UsersController::class, 'search'])->name('users.search');
   Route::get('search', [UsersController::class, 'index']);
   // 編集ページと更新処理
-  Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-  Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+  Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
+  Route::put('/users/{id}', [UsersController::class, 'update'])->name('users.update');
   // フォローとフォロワー
   Route::get('follow-list', [FollowsController::class, 'followList']);
   Route::get('follower-list', [FollowsController::class, 'followList']);

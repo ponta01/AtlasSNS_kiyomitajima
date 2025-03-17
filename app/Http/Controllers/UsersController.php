@@ -7,18 +7,23 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    public function index() {
+        $users = User::get();// ユーザーテーブルから取得
+        // \Debugbar::info($users);
+        return view('users.search',['users'=>$users]);
+    }
     //
     public function search(Request $request){
         // 1つ目の処理
-        $keyword = $request->input('keyword');
+        $username = $request->input('username');
         // 2つ目の処理
-        if(!empty($keyword)){
-        $users = User::where('title','like', '%'.$keyword.'%')->get();
+        if(!empty($username)){
+        $users = User::where('username','like', '%'.$username.'%')->get();
         }else{
         $users = User::all();
         }
         // 3つ目の処理
-        return view('users.search',['users'=>$users]);
+        return view('users.search',['users'=>$users, 'username'=>$username]);
     }
 
     // 編集フォームの表示
@@ -34,9 +39,12 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
 
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id, // ユニークチェック
-            'profile_image' => 'nullable|image|max:2048', // 画像ファイルのバリデーション
+            'username' => ['required', 'string', 'min:2', 'max:12'],
+            'email' => ['required', 'string', 'email', 'min:5', 'max:40'],
+            'newpassword' => ['required', 'regex:/^[a-zA-Z0-9]+$/','min:8', 'max:20', 'confirmed'],
+            'newpassword_confirmation' => ['required', 'regex:/^[a-zA-Z0-9]+$/','min:8', 'max:20', 'confirmed','same:newpassword'],
+            'bio' => ['required', 'string', 'max:150'],
+            'icon_image' => ['required', 'image', 'bmp,png,jpg,gif,svg'],
         ]);
 
         // 画像の保存
@@ -47,6 +55,8 @@ class UsersController extends Controller
         // ユーザー情報の更新
         $user->update($validatedData);
 
-        return redirect()->route('users.edit', $user->id)->with('success', 'プロフィールが更新されました。');
+        return redirect()->route('users.index', $user->id)->with('success', 'プロフィールが更新されました。');
     }
+
+
 }

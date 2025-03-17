@@ -42,14 +42,14 @@
           <p>フォロー数</p>
           <p> 名</p>
         </div>
-        <p class="btn"><a href="{{ asset('follow/followList') }}">フォローリスト</a></p>
+        <button type= button class=”btn btn-primary”><a href="{{ asset('follow/followList') }}">フォローリスト</a></button>
         <div>
           <p>フォロワー数</p>
           <p>名</p>
         </div>
-        <p class="btn"><a href="{{ asset('follower/followerList') }}">フォロワーリスト</a></p>
+        <button type= button class=”btn btn-primary”><a href="{{ asset('follower/followerList') }}">フォロワーリスト</a></button>
       </div>
-      <p class="btn"><a href="{{ asset('users/search') }}">ユーザー検索</a></p>
+      <button type= button class=”btn btn-primary”><a href="{{ asset('/search') }}">ユーザー検索</a></button>
     </div>
   </div>
   <!-- <footer>

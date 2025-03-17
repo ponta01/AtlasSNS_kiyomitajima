@@ -29,9 +29,9 @@ $(function () {
     var post_id = $(this).attr('post_id');
 
     // 取得した投稿内容をモーダルの中身へ渡す
-    $('.modal_post').text(post);
+    $('.modal_update').text(post);
     // 取得した投稿のidをモーダルの中身へ渡す
-    $('.modal_id').val(post_id);
+    $('.update_id').val(post_id);
     return false;
   });
 

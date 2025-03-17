@@ -1,4 +1,5 @@
 <x-login-layout>
+    <div class= "profile content">
       <img src="images/icon1.png" style="width: 40px; height: 40px;">
       <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -9,7 +10,7 @@
           <br>
 
           <label for="password">メールアドレス:</label>
-          <input type="email" id="email" name="email" value="{{ old('email', $user->email) }}" placeholder="admin@atlas.com" required>
+          <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="admin@atlas.com" required>
           <br>
 
           <label for="password">パスワード:</label>
@@ -33,6 +34,7 @@
 
           <button type="submit" href= "/top">更新</button>
       </form>
+    </div>
 
 
 </x-login-layout>

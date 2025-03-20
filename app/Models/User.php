@@ -36,22 +36,32 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    public function posts()
+    {
+        return $this->HasMany('App/Models/Post');
+    }
+
+
     public function follows()
     {
-        return $this->hasMany(Follow::class, 'following_id');
+        return $this->belongsToMany('App/Models/follow', 'follow','followed_id', 'following_id');
     }
 
     public function followers()
     {
-        return $this->hasMany(Follow::class, 'followed_id');
+        return $this->belongsToMany('App/Models/follow', 'follow', 'following_id', 'followed_id');
+        // 引数の中身について①関係するモデルの場所、②中間テーブルの名前、③自分のidが入るカラム、④中間テーブルの相手モデルに関係しているカラム
     }
 
-    public function isFollowing($userId)
+    public function isFollowing($user)
+    // フォローしているかどうか確認するメソッド
     {
-    return Follow::where('following_id', $this->id)
-                ->where('followed_id', $userId)
-                ->exists();
+    return $this->following()->where('followed_id', $user->id)->exists();
     }
+
+    }
+
 
 //     データベースの準備 ユーザーデータベースにアイコン（画像）のファイルパスを保存するカラムを追加します。例えば、users テーブルに profile_image というカラムを持たせることができます。
 
@@ -59,5 +69,3 @@ class User extends Authenticatable
 //     Schema::table('users', function (Blueprint $table) {
 //     $table->string('profile_image')->nullable(); // アイコン用の画像パス
 // });
-
-}

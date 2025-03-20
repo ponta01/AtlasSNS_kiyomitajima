@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post; // Postモデルをインポート
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Form;
+
 
 class PostsController extends Controller
 {
     //
     public function index(Request $request){
-        $array = post::get(); //Postモデル（Postsテーブル）からレコード情報を取得して$arrayに格納している
+        $array = Post::with('user')->orderBy('created_at', 'desc')->get(); //Postモデル（Postsテーブル）からレコード情報を取得して$arrayに格納している
         return view('posts.index',['array'=>$array]);
     }
 

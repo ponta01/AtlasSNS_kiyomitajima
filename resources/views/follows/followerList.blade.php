@@ -1,33 +1,13 @@
 <x-login-layout>
     <main>
-        @foreach ($followingId as $value)
-<tr>・
-    ・
-    <td></td>
-    ↓下記に修正
-    <td>{{ $value->followingId }}</td>
-・
-・
-</tr>
-@endforeach
 
+    <!-- 下記2行はフォロー、フォロワーをブラウザに表示するときに必要になりそう。だけど、()の中は変数で呼び出さないといけないから、後で考える。php artisan migrate -->
+    $following = User::find(1)->follows;// ユーザーID 1 のフォロー中のユーザー
+    $followers = User::find(1)->followers; // ユーザーID 1 のフォロワー@foreach
 
+        @foreach ($following_id as $value)
+        <p>{{ $value->following_id }}</p>
+        @endforeach
 
-
-        <a href="{{ asset('/followList.blade') }}">フォロワーリスト</a>
-        <form action="{{ asset('/submit-post') }}" method="POST">
-            @csrf
-            <div>
-                <label for="title">タイトル:</label>
-                <input type="text" id="title" name="title" required>
-            </div>
-            <div>
-                <label for="post">内容:</label>
-                <textarea id="post" name="post" rows="5" required></textarea>
-            </div>
-            <div>
-                <button type="submit">投稿</button>
-            </div>
-        </form>
     </main>
 </x-login-layout>

@@ -16,7 +16,13 @@
         @foreach($array as $value)
         <div class="content">
             <p>{{ $value->post }}</p>
-            <img src="{{ $value->icon_image }}" style="width: 40px; height: 40px;>"
+            @if(Auth::user()->images === 'icon1.png')
+            <!-- ログインしているユーザーのイメージ画像がアイコン1だったら -->
+            <img src="{{asset('images/icon1.png')}}" >
+            @else
+            <img src="{{asset('/storage/images/' . $value->user->images)}}">
+            <!-- .は結合演算子。ストレージにある画像から実際にユーザーが登録した画像を表示させてね -->
+            @endif
             <p>{{ $value->created_at }}</p>
 
                 @if ($errors->any())

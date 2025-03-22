@@ -9,7 +9,6 @@ class UsersController extends Controller
 {
     public function index() {
         $users = User::get();// ユーザーテーブルから取得
-        // \Debugbar::info($users);
         return view('users.search',['users'=>$users]);
     }
     //
@@ -56,6 +55,29 @@ class UsersController extends Controller
         $user->update($validatedData);
 
         return redirect()->route('users.index', $user->id)->with('success', 'プロフィールが更新されました。');
+    }
+
+    public function follow($id)
+    {
+        $follows=auth()->user();
+        // ログインしている自分側
+        $following=$follows->isFollowing($id);
+        // フォローされる相手側
+        if(!$following){
+            $follows->follow($id);
+        }
+        // フォローされる相手側が
+        return back ();
+    }
+
+    public function unfollow($id)
+    {
+        $follows=auth()->user();
+        $following=$follows->isFollowing($id);
+        if($following){
+            $follows->unfollow($id);
+        }
+        return back ();
     }
 
 

@@ -16,11 +16,11 @@
         @foreach($array as $value)
         <div class="content">
             <p>{{ $value->post }}</p>
-            @if(Auth::user()->images === 'icon1.png')
-            <!-- ログインしているユーザーのイメージ画像がアイコン1だったら -->
-            <img src="{{asset('images/icon1.png')}}" >
+            @if(Auth::user()->icon_image === 'icon1.png')
+            <!-- ログインしているユーザーのイメージ画像がアイコン1だったらカラム名(icon_image) -->
+            <img src="{{asset('images/icon1.png')}}" style="width: 40px; height: 40px;" >
             @else
-            <img src="{{asset('/storage/images/' . $value->user->images)}}">
+            <img src="{{asset('/storage/images/' . $value->user->images)}}"style="width: 40px; height: 40px;">
             <!-- .は結合演算子。ストレージにある画像から実際にユーザーが登録した画像を表示させてね -->
             @endif
             <p>{{ $value->created_at }}</p>

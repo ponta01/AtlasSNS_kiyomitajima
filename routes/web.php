@@ -32,8 +32,11 @@ Route::middleware('auth')->group(function () {
   Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
   Route::put('/users/{id}', [UsersController::class, 'update'])->name('users.update');
   // フォローとフォロワー
-  Route::get('follow-list', [FollowsController::class, 'followList']);
-  Route::get('follower-list', [FollowsController::class, 'followList']);
+  Route::get('follows/followList', [FollowsController::class, 'followList']);
+  Route::get('follows/followerList', [FollowsController::class, 'followerList']);
+
+  Route::post('/follow/{id}', [UsersController::class, 'follow'])->name('follow');
+  Route::post('/unfollow/{id}', [UsersController::class, 'unfollow'])->name('unfollow');
 
   Route::post('/follow', [FollowsController::class, 'followUser'])->name('follow-user');
 

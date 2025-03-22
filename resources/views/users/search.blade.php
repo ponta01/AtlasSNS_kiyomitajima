@@ -20,6 +20,24 @@
         </div>
         @endif
         @endforeach
+
+        @foreach ($users as $user)
+        <div>
+        <p>{{ $user->name }}</p>
+
+        @if (Auth::user()->isFollowing($user->id)) <!-- ログインユーザーがフォローしている状態であるなら($userに格納されているidを取得してね) -->
+            <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-danger">フォロー解除</button>
+            </form>
+        @else
+            <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary">フォローする</button>
+            </form>
+        @endif
+        </div>
+        @endforeach
   </main>
 
 

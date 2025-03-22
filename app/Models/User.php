@@ -45,22 +45,40 @@ class User extends Authenticatable
 
     public function follows()
     {
-        return $this->belongsToMany('App/Models/follow', 'follow','followed_id', 'following_id');
+        return $this->belongsToMany('App\Models\User', 'follows','following_id', 'followed_id');
     }
 
     public function followers()
     {
-        return $this->belongsToMany('App/Models/follow', 'follow', 'following_id', 'followed_id');
+        return $this->belongsToMany('App\Models\User', 'follows', 'followed_id', 'following_id');
         // 引数の中身について①関係するモデルの場所、②中間テーブルの名前、③自分のidが入るカラム、④中間テーブルの相手モデルに関係しているカラム
     }
 
-    public function isFollowing($user)
-    // フォローしているかどうか確認するメソッド
+    public function follow(Int $users)
+    // followという関数を呼び出したときメソッドに渡す値
+    // Intを使うことで、整数のみ渡されるようにした
     {
-    return $this->following()->where('followed_id', $user->id)->exists();
+        return $this->follows()->attach($users);
     }
+    // attach:多対多のリレーションのときしか使えないメソッド
+    // データベースにレコードを追加するメソッド
 
+    public function unfollow(Int $users)
+    // followという関数を呼び出したときメソッドに渡す値
+    // Intを使うことで、整数のみ渡されるようにした
+    {
+        return $this->follows()->detach($users);
     }
+    // detachはデータベースからレコードを削除するメソッド
+
+    public function isFollowing($users)
+    {
+    return $this->follows()->where('followed_id', $users)->exists();
+    }
+    // フォローしているか確認できるようにする記述↑
+    // follows(リレーションのメソッドの名前)はフォローしているユーザーとのリレーション(ユーザーがフォローしているリスト)を取得するという意味
+    // whereは検索:第一引数と第二引数が一致するものを探す
+}
 
 
 //     データベースの準備 ユーザーデータベースにアイコン（画像）のファイルパスを保存するカラムを追加します。例えば、users テーブルに profile_image というカラムを持たせることができます。

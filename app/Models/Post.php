@@ -14,4 +14,5 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+    // リレーションすることによって、投稿したユーザー情報(今回は投稿した時間)を取得できる
 }

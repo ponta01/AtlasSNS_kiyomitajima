@@ -1,22 +1,10 @@
-// $(function () { // if document is ready
-//   alert('hello world')
-// });
-
-document.addEventListener("DOMContentLoaded", function () {
-  var accordionButtons = document.querySelectorAll(".accordion-button");
-
-  accordionButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      var accordionBody = button.parentElement.nextElementSibling;
-      console.log('文字をかく');
-      // クリックされたアコーディオンボディをトグル
-      accordionBody.classList.toggle("show");
-
-      // collapsed状態をトグル
-      button.classList.toggle("collapsed");
-    });
+$(function () {
+  $(".accordion-button").on("click", function () {
+    $(this).next().slideToggle(300);
+    $(this).toggleClass("open", 300);
   });
 });
+// .accordion-buttonのクラスがクリックされたとき、next()がボタンが押された直後の要素を取得。slideToggleがスライドの表示、非表示を切り替える。300(0.3秒)はスピード。その下はopenというクラスが付与され、もう一度ボタンがクリックされるとクラスが外れる。
 
 $(function () {
   // 編集ボタン(class="js-modal-open")が押されたら発火

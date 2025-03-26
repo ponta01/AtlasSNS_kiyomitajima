@@ -25,15 +25,17 @@ Route::middleware('auth')->group(function () {
   Route::get('top', [PostsController::class, 'index']);
   // プロファイル
   Route::get('profile', [ProfileController::class, 'profile']);
+  Route::post('profile/{id}', [ProfileController::class, 'update'])->name('profileUpdate');
   // ユーザー検索
   Route::post('search', [UsersController::class, 'search'])->name('users.search');
-  Route::get('search', [UsersController::class, 'index']);
-  // 編集ページと更新処理
-  Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
-  Route::put('/users/{id}', [UsersController::class, 'update'])->name('users.update');
+  Route::get('search', [UsersController::class, 'search']);
+  // Route::post('/users/{id}', [UsersController::class, 'update'])->name('users.update');
   // フォローとフォロワー
   Route::get('follows/followList', [FollowsController::class, 'followList']);
   Route::get('follows/followerList', [FollowsController::class, 'followerList']);
+  Route::get('/users/{id}', [FollowsController::class, 'followList'])->name('usersProfile');
+  // ユーザープロフィール
+  Route::get('/users/{id}', [FollowsController::class, 'userProfile'])->name('usersProfile');
 
   Route::post('/follow/{id}', [UsersController::class, 'follow'])->name('follow');
   Route::post('/unfollow/{id}', [UsersController::class, 'unfollow'])->name('unfollow');

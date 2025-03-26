@@ -1,24 +1,22 @@
         <!-- <p>ナビゲーション(青い帯の中)</p> -->
 
-        <div id="head">
-            <h1><a href="{{ url('/top') }}">
-        <img src="{{ asset('images/atlas.png') }}" alt="Logo">
-                </a></h1>
-            <div id="accordion">
-                <!-- <div id=""> -->
-                <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button">
-                </button>
-            </h2>
-            <div id="menu1" class="accordion-collapse">
-                <div class="accordion-body">
-                    <p>さん</p>
-                </div>
-                <ul>
-                    <li class="accordion-item"><a href="{{ url('top') }}">HOME</a></li>
-                    <li class="accordion-item"><a href="{{ url('profile') }}">プロフィール編集</a></li>
-                    <li class="accordion-item"><a href="{{ url('logout') }}">ログアウト</a></li>
+<div id="head">
+    <a href="{{ url('/top') }}">
+        <img src="{{ asset('images/atlas.png') }}" id="atlas">
+    </a>
+    <div class="flex">
+        <p class="loginUsername">{{Auth::User()->username}} さん</p>
+    </div>
+    <div id="accordion">
+            <!-- <div id=""> -->
+        <div class="accordion-item">
+            <p class="accordion-button"></p>
+                <ul class="accordion-content">
+                    <li><a href="{{ url('top') }}">HOME</a></li>
+                    <li><a href="{{ url('profile') }}">プロフィール編集</a></li>
+                    <li><a href="{{ url('logout') }}">ログアウト</a></li>
                 </ul>
-            </div>
         </div>
+    </div>
+    <img src="{{asset('storage/' . auth::User()->icon_image)}}" id="icon">
+</div>

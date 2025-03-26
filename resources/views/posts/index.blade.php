@@ -3,10 +3,14 @@
     <main>
         <form action="{{ route('post.store') }}" method="POST">
         @csrf
-            <div>
-                <img src="images/icon1.png" style="width: 40px; height: 40px;">
-                <textarea id="post_id" name="post" rows="5" placeholder="投稿内容を入力してください。" required></textarea>
-                    <input type= "image" src="images/post.png" style="width: 40px; height: 40px;">
+            <div class="post">
+                @if(Auth::User()->icon_image === 'icon1.png')
+                    <img src="{{asset('icon_images/icon1.png')}}" style="width: 40px; height: 40px;" >
+                @else
+                    <img src="{{asset('storage/' . auth::User()->icon_image)}}" style="width: 40px; height: 40px;">
+                @endif
+                    <textarea id="post_id" name="post" rows="5" placeholder="投稿内容を入力してください。" required></textarea>
+                    <input type= "image" src="images/post.png" id="post-button" style="width: 40px; height: 40px;">
             </div>
             <!-- @if(session('success'))
             <p>{{ session('success') }}</p>
@@ -18,15 +22,15 @@
             <p>{{ $value->post }}</p>
             @if(Auth::user()->icon_image === 'icon1.png')
             <!-- ログインしているユーザーのイメージ画像がアイコン1だったらカラム名(icon_image) -->
-            <img src="{{asset('images/icon1.png')}}" style="width: 40px; height: 40px;" >
+            <img src="{{asset('icon_images/icon1.png')}}" style="width: 40px; height: 40px;" >
             @else
-            <img src="{{asset('/storage/images/' . $value->user->images)}}"style="width: 40px; height: 40px;">
+            <img src="{{ asset('storage/' . $value->icon_image) }}" style="width: 40px; height: 40px;">
             <!-- .は結合演算子。ストレージにある画像から実際にユーザーが登録した画像を表示させてね -->
             @endif
-            <p>{{ $value->created_at }}</p>
+            <p class="date">{{ $value->created_at }}</p>
 
                 @if ($errors->any())
-        <div class="alert alert-danger">
+            <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -39,8 +43,8 @@
                 @if($value->user_id === Auth::id())
                 <a class="js-modal-open" href="" post="{{ $value->post }}" post_id="{{ $value->id }}"><img src="images/edit.png" style="width: 40px; height: 40px;"></a>
 
-                <a href ="/post/{{$value->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
-                <img src="images/trash-h.png" style="width: 40px; height: 40px;">
+                <a href ="/post/{{$value->id}}/delete" id="trash"  onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
+                <img src="images/trash-h.png" onmouseover="this.src='images/trash.png'" onmouseout="this.src='images/trash-h.png'" id="post-delete" style="width: 40px; height: 40px;">
                 </a>
                 @endif
             </div>

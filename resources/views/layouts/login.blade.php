@@ -41,18 +41,18 @@
     <div id="side-bar">
       <div id="confirm">
         <p class="authUser">{{Auth::User()->username}}さんの</p>
-        <div>
+        <div class="followCount">
           <p>フォロー数</p>
-          <p class="followCount">{{Auth::User()->follows->count()}}名</p>
+          <p>{{Auth::User()->follows->count()}}名</p>
         </div>
-        <button type= button class=”btn btn-primary”><method= get><a href="{{ asset('follows/followList') }}">フォローリスト</a></button>
-        <div>
+        <a href="{{ asset('follows/followList') }}" class="btn btn-primary" style="width: 120px;">フォローリスト</a>
+        <div class="followCount">
           <p>フォロワー数</p>
-          <p class="followCount">{{Auth::User()->followers->count()}}名</p>
+          <p>{{Auth::User()->followers->count()}}名</p>
         </div>
-        <button type= button class=”btn btn-primary”><method= get><a href="{{ asset('follows/followerList') }}">フォロワーリスト</a></button>
+        <a href="{{ asset('follows/followerList') }}" class="btn btn-primary" style="width: 120px;">フォロワーリスト</a>
       </div>
-      <button type= button class=”btn btn-primary”><a href="{{ asset('/search') }}">ユーザー検索</a></button>
+      <a href="{{ asset('/search') }}"class="btn btn-primary" style="width: 150px;">ユーザー検索</a>
     </div>
   </div>
   <!-- <footer>

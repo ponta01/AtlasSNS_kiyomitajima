@@ -1,35 +1,86 @@
 @charset "utf-8";
 
-html {}
+html {
+    height: 100%;
+}
 
-body {}
+body {
+    height: 100%;
+}
 
 /* header */
 header {
     background: #186AC9;
+    height: 100px;
+}
+
+#atlas{
+    margin: 20px;
+    width: 150px;
+}
+
+#head{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.flex {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.loginUsername {
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    top: 45px;
+    right: 160px;
+}
+
+#icon{
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
 
 /* main content */
 
 .post {
-    text-align: center;
+    top: 30px;
     position: relative;
+    border-bottom: solid 8px #e0e0e0;
+    text-align: right;
 }
 
 .post img {
-    float: left;
+    position: absolute;
+    left: 30px;
     /* アイコン画像を左に移動 */
     margin-right: 10px;
     /* テキストエリアとの間に余白を追加 */
 }
 
+#post_id {
+    left: 300px;
+    width: 1300px;
+    border: none;
+}
+
 .post textarea {
-    display: block;
-    /* ブロック要素として表示 */
     width: calc(100% - 50px);
     /* テキストエリアの幅を調整 */
     border-bottom: 5px solid #727272;
     /* もっと下にいれたいから明日以降考える */
+}
+
+#post-button{
+    position: absolute;
+    top: 85px;
+    right: 440px;
 }
 
 .submit {
@@ -49,52 +100,98 @@ header {
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    display: block;
+    color: black;
 }
 
+#confirm{
+    border-bottom: 1px solid #727272;
+}
+
+.followCount{
+    display: flex;
+    color: black;
+}
+
+.atlasLogo{
+    position: absolute;
+    padding-left: 10px;
+    display: flex;
+    color: #fff;
+}
+
+/* アコーディオンメニュー */
 .accordion-button {
-    background-color: #186AC9;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    text-align: left;
-    width: 100%;
-    outline: none;
-    position: relative;
-}
 
-.accordion-collapse {
-    display: none;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    cursor: pointer;
+
 }
 
 .accordion-button::after {
-    content: "＾";
-    /* 矢印を下向きに表示 */
+    border-right: solid 3px #fff;
+    border-top: solid 3px #fff;
+    content: "";
+    display: block;
+    height: 8px;
+    width: 8px;
     position: absolute;
-    right: 20px;
-    font-size: 1.2em;
-    transition: transform 0.3s ease;
-    transform: rotate(180deg);
+    right: 25px;
+    top: 38%;
+    -webkit-transform: rotate(135deg)!important;
+    transform: rotate(135deg)!important;
+    transition: 0.5s;
 }
 
-.accordion-button.collapsed::after {
-    transform: rotate(0deg);
+.accordion-button.open::after {
+    top: 45%;
+    -webkit-transform: rotate(-45deg)!important;
+    transform: rotate(-45deg)!important;
+    transition: 0.5s;
     /* 矢印を上下反転させる */
 }
 
-.accordion-body {
-    padding: 20px;
-    background-color: #f1f1f1;
+.accordion-content {
     display: none;
+    list-style: none;
+    border: solid 1px #00297e;
+    position: absolute;
+    top: 100px;
+    right: 1px;
+    width: 300px;
 }
 
-.accordion-body.show {
+.accordion-content li a{
     display: block;
+    font-size: large;
+    text-align: center;
+    border-bottom: solid 1px #00297e;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    width: 100%;
+    color: #848484;
+    background-color: #fff;
 }
+
+.accordion-content li a:hover {
+    background-color: #00297e;
+    color: #fff;
+}
+
 
 .content {
-    margin: 0 auto;
     padding: 40px;
+    width: 100%;
+    border-bottom: solid 1px #00297e;
+    position: relative;
+}
+
+.date{
+    position: absolute;
+    top: 10px; /* 親要素の上端に配置 */
+    right: 100px;
 }
 
 .modal {
@@ -107,7 +204,7 @@ header {
 
 .modal__bg {
     background: rgba(0, 0, 0, 0.8);
-    height: 100vh;
+    height: 200vh;
     position: absolute;
     width: 100%;
 }
@@ -117,7 +214,58 @@ header {
     left: 50%;
     padding: 40px;
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translate(-50%, -50%);
     width: 60%;
+}
+
+.modal_update{
+    width: 800px;
+    height: 200px;
+    justify-content: center;
+}
+
+
+/* #trash:hover{
+    background-image: url('trash.png');
+} */
+
+.table-center{
+    text-align: center;
+}
+
+.profileContent{
+    position: relative;
+    text-align: center;
+    margin: 30px;
+    font-size: large;
+}
+.profile-label{
+    margin-bottom: 50px;
+    height: 30px;
+    width: 500px;
+    text-align: left;
+}
+
+.form-control{
+    background-color: #efefef;
+    color: black;
+}
+
+.btn btn-danger{
+    color: #fff;
+    width: 30px;
+}
+
+.search{
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+.btn-success{
+    all: unset;
+}
+
+.search-word{
+    font-size: large;
 }

@@ -1,7 +1,7 @@
 <x-login-layout>
 
     <main>
-        <form action="{{ route('post.store') }}" method="POST">
+        <form action="{{ route('post.store') }}" method="POST" class="formTag">
         @csrf
             <div class="post">
                 @if(Auth::User()->icon_image === 'icon1.png')
@@ -18,9 +18,11 @@
         </form>
 
         @foreach($array as $value)
+        <!-- $arrayからuserテーブルを呼び出す、そこからusernameを呼び出す -->
         <div class="content">
-            <p>{{ $value->post }}</p>
-            @if(Auth::user()->icon_image === 'icon1.png')
+            <p class="cont">{{ $value->post }}</p>
+            <p class="cont">{{ $value->user->username }}</p>
+            @if($value->icon_image === 'icon1.png')
             <!-- ログインしているユーザーのイメージ画像がアイコン1だったらカラム名(icon_image) -->
             <img src="{{asset('icon_images/icon1.png')}}" style="width: 40px; height: 40px;" >
             @else
@@ -41,15 +43,17 @@
 
 
                 @if($value->user_id === Auth::id())
-                <a class="js-modal-open" href="" post="{{ $value->post }}" post_id="{{ $value->id }}"><img src="images/edit.png" style="width: 40px; height: 40px;"></a>
+                <div class="button-wrapper"><a class="js-modal-open" href="" post="{{ $value->post }}" post_id="{{ $value->id }}"><img src="images/edit.png" style="width: 40px; height: 40px;"></a>
 
                 <a href ="/post/{{$value->id}}/delete" id="trash"  onclick="return confirm('この投稿を削除します。よろしいでしょうか？')">
-                <img src="images/trash-h.png" onmouseover="this.src='images/trash.png'" onmouseout="this.src='images/trash-h.png'" id="post-delete" style="width: 40px; height: 40px;">
+                <img src="images/trash-h.png" onmouseover="this.src='images/trash.png'" onmouseout="this.src='images/trash-h.png'" style="width: 40px; height: 40px;">
                 </a>
+                </div>
                 @endif
             </div>
-
         @endforeach
+
+        @foreach($array as $value)
         <!-- モーダルの中身 -->
         <div class="modal js-modal">
             <div class="modal__bg js-modal-close"></div>
@@ -63,7 +67,7 @@
                 </form>
             </div>
         </div>
-
+        @endforeach
     </main>
 
 </x-login-layout>

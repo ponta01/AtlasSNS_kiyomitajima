@@ -52,33 +52,34 @@ header {
 .post {
     top: 30px;
     position: relative;
-    border-bottom: solid 8px #e0e0e0;
-    text-align: right;
+    text-align: center;
 }
 
 .post img {
     position: absolute;
-    left: 30px;
+    left: 70px;
     /* アイコン画像を左に移動 */
     margin-right: 10px;
     /* テキストエリアとの間に余白を追加 */
 }
 
+.formTag{
+    display: block;
+    padding: 40px;
+    border-bottom: solid 8px #e0e0e0;
+}
+
 #post_id {
-    left: 300px;
-    width: 1300px;
+    width: 80%;
     border: none;
 }
 
 .post textarea {
-    width: calc(100% - 50px);
-    /* テキストエリアの幅を調整 */
     border-bottom: 5px solid #727272;
     /* もっと下にいれたいから明日以降考える */
 }
 
 #post-button{
-    position: absolute;
     top: 85px;
     right: 440px;
 }
@@ -89,8 +90,9 @@ header {
 }
 
 #row {
+    position: relative;
     display: flex;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
 }
 
 #container {
@@ -98,19 +100,46 @@ header {
 }
 
 #side-bar {
-    flex: 0 0 19%;
+    height: 100vh;
+    width: 100vw;
+    flex: 0 0 20%;
     border-left: 1px solid #727272;
     display: block;
     color: black;
 }
 
 #confirm{
+    font-size: 20px;
     border-bottom: 1px solid #727272;
 }
 
+.authUser{
+    margin: 10px 0 0 10px;
+}
+
 .followCount{
+    margin-top: 10px;
     display: flex;
     color: black;
+    font-size: 20px;
+    justify-content: space-around;
+    width: 50%;
+}
+
+/* #sidebarButton{
+    top: 50px;
+    right: 100%;
+    width: 120px
+} */
+
+.followBtn{
+    margin: 30px 0px 50px 200px;
+    width: 120px
+}
+
+.searchBtn{
+    margin-top: 30px;
+    text-align: center;
 }
 
 .atlasLogo{
@@ -160,7 +189,8 @@ header {
     position: absolute;
     top: 100px;
     right: 1px;
-    width: 300px;
+    width: 10%;
+    z-index: 10;
 }
 
 .accordion-content li a{
@@ -188,11 +218,24 @@ header {
     position: relative;
 }
 
+.cont{
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    margin-left: 180px;
+}
+
+
 .date{
     position: absolute;
     top: 10px; /* 親要素の上端に配置 */
     right: 100px;
 }
+
+.button-wrapper{
+    display: flex;
+    justify-content: right;
+}
+
 
 .modal {
     display: none;
@@ -226,11 +269,17 @@ header {
 }
 
 
-/* #trash:hover{
-    background-image: url('trash.png');
-} */
+#contentProf{
+    display: flex;
+}
+
+#iconProf {
+    margin: 130px 0px 0 700px;
+}
 
 .table-center{
+    position: absolute;
+    margin: 100px 300px 30px 800px;
     text-align: center;
 }
 
@@ -257,9 +306,37 @@ header {
     width: 30px;
 }
 
-.search{
+.search-word{
+    margin: 0 0 0 500px;
+}
+.search-wrapper {
+    display: block;
+    margin: 50px 0 0 500px;
+    text-align: left;
+}
+
+.search {
     padding-top: 30px;
     padding-left: 30px;
+    padding-bottom: 30px;
+    border-bottom: solid 8px #e0e0e0;
+    display: flex;
+}
+
+.search-flex{
+    display: flex;
+}
+
+.search-icon{
+    margin-top: 30px;
+    display: flex;
+    padding-left: 100px;
+}
+.search-follow{
+    margin-top: 30px;
+    display: block;
+    padding-left: 100px;
+    justify-content: center;
 }
 
 .btn-success{
@@ -268,4 +345,45 @@ header {
 
 .search-word{
     font-size: large;
+}
+
+.follow-title{
+    font-size: xx-large;
+    margin: 30px 0px 10px 60px;
+}
+
+.follow-icon-list{
+    border-bottom: solid 8px #e0e0e0;
+}
+
+.follow-icon{
+    display: flex;
+}
+
+.userProfile{
+    display: flex;
+    border-bottom: solid 8px #e0e0e0;
+}
+
+#userProf{
+    margin: 30px 0 30px 300px;
+}
+
+.userPro{
+    display: block;
+    flex-wrap: wrap;
+    margin: 30px 0 30px 100px;
+}
+
+.userFollow{
+    justify-content: right;
+}
+
+.postProf{
+    margin: 30px 0 30px 300px;
+}
+
+#postIcon{
+    margin: 30px 0 30px 300px;
+
 }

@@ -45,14 +45,14 @@
           <p>フォロー数</p>
           <p>{{Auth::User()->follows->count()}}名</p>
         </div>
-        <a href="{{ asset('follows/followList') }}" class="btn btn-primary" style="width: 120px;">フォローリスト</a>
+        <p class="followBtn"><a href="{{ asset('follows/followList') }}" class="btn btn-primary" style="width: 120px;">フォローリスト</a></p>
         <div class="followCount">
           <p>フォロワー数</p>
           <p>{{Auth::User()->followers->count()}}名</p>
         </div>
-        <a href="{{ asset('follows/followerList') }}" class="btn btn-primary" style="width: 120px;">フォロワーリスト</a>
+        <p class="followBtn"><a href="{{ asset('follows/followerList') }}" class="btn btn-primary" style="width: 140px;">フォロワーリスト</a></p>
       </div>
-      <a href="{{ asset('/search') }}"class="btn btn-primary" style="width: 150px;">ユーザー検索</a>
+      <p class="searchBtn"><a href="{{ asset('/search') }}" class="btn btn-primary" style="width: 150px;">ユーザー検索</a></p>
     </div>
   </div>
   <!-- <footer>

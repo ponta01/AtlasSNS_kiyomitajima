@@ -9,7 +9,6 @@
 
 
         <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/logout.css') }} ">
         <!--スマホ,タブレット対応-->
@@ -24,8 +23,9 @@
     </head>
     <body>
         <header>
-            <h1><img src="images/atlas.png"></h1>
-            <p>Social Network Service</p>
+            <div class="titleTop">
+            <img src="images/atlas.png" id="logo">
+            <p class="social">Social Network Service</p></div>
         </header>
         <div id="container">
             {{ $slot }}

@@ -1,7 +1,8 @@
 <x-login-layout>
+    <div id="contentProf">
+      <img src="{{ asset('storage/' . $user->icon_image) }}" id="iconProf" style="width: 40px; height: 40px;">
     <div class="table-center">
       <table class= "profileContent">
-      <img src="{{ asset('storage/' . $user->icon_image) }}" style="width: 40px; height: 40px;">
       <form action="{{ route('profileUpdate', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
 
@@ -45,5 +46,6 @@
         </tr>
     </table>
     <button type="submit" class="btn btn-danger" style="width: 150px;">更新</button></form>
+  </div>
   </div>
 </x-login-layout>

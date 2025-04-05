@@ -13,7 +13,16 @@ class PostsController extends Controller
 {
     //
     public function index(Request $request){
-        $array = Post::with('user')->orderBy('created_at', 'desc')->get(); //Postモデル（Postsテーブル）からレコード情報を取得して$arrayに格納している
+        // ログインユーザーのIDを取得
+        $userId = auth()->id();
+        // ログインユーザーがフォローしているユーザーのIDを取得
+        $followedUserIds = \App\Models\Follow::where('following_id', $userId)->pluck('followed_id');
+
+        // ログインユーザーとフォローしているユーザーの投稿を取得
+        $array = Post::with('user')
+        ->whereIn('user_id', $followedUserIds->push($userId)) // フォローしているユーザーと自身の投稿
+        ->orderBy('created_at', 'desc')
+        ->get(); //Postモデル（Postsテーブル）からレコード情報を取得して$arrayに格納している
         return view('posts.index',['array'=>$array]);
     }
 

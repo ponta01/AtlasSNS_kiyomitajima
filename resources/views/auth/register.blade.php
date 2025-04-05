@@ -32,20 +32,20 @@
 
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/register']) !!}
-{{ Form::label('ユーザー名') }}
+<p class="label">{{ Form::label('ユーザー名') }}</p>
 {{ Form::text('username',null,['class' => 'input']) }}
 
-{{ Form::label('メールアドレス') }}
+<p class="label">{{ Form::label('メールアドレス') }}</p>
 {{ Form::email('email',null,['class' => 'input']) }}
 
-{{ Form::label('パスワード') }}
+<p class="label">{{ Form::label('パスワード') }}</p>
 {{ Form::text('password',null,['class' => 'input']) }}
 
-{{ Form::label('パスワード確認') }}
+<p class="label">{{ Form::label('パスワード確認') }}</p>
 {{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
-{{ Form::submit('新規登録') }}
+<button type="submit" class="btn btn-danger" style="width: 60%;">新規登録</button>
 {!! Form::close() !!}
 
-<p class="register-link"><a href="login">ログイン画面へ戻る</a></p>
+<p class="register-link"><a href="login">ログイン画面に戻る</a></p>
 </x-logout-layout>

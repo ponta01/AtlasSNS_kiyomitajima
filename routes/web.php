@@ -49,12 +49,12 @@ Route::middleware('auth')->group(function () {
   Route::post('/post/{id}/search',[PostsController::class, 'search'])->name('post.search');
 
   // ログアウト
-  Route::get('logout', [AuthenticatedSessionController::class, 'logout']);
+  Route::get('logout', [AuthenticatedSessionController::class, 'logout'])->name('logout');
 
   // 登録後ページ
-  Route::get('added', function () {
-    return view('auth.added');
-  })->name('user.success');
+  // Route::get('added', function () {
+  //   return view('auth.added');
+  // })->name('user.success');
 
 });
 

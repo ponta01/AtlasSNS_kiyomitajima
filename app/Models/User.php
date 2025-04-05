@@ -72,9 +72,9 @@ class User extends Authenticatable
     }
     // detachはデータベースからレコードを削除するメソッド
 
-    public function isFollowing($users)
+    public function isFollowing($user_id)
     {
-    return $this->follows()->where('followed_id', $users)->exists();
+    return $this->follows()->where('followed_id', $user_id)->exists();
     }
     // フォローしているか確認できるようにする記述↑
     // follows(リレーションのメソッドの名前)はフォローしているユーザーとのリレーション(ユーザーがフォローしているリスト)を取得するという意味

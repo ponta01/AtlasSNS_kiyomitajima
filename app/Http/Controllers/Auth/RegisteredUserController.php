@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        return redirect()->route('user.success')->with('username', $user->username);
+        return redirect()->route('user.login')->with('username', $user->username);
     }
 
     public function added(): View

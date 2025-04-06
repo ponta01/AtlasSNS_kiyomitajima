@@ -4,7 +4,7 @@
         @csrf
         <div class="post">
             @if(Auth::User()->icon_image === 'icon1.png')
-                <img src="{{asset('icon_images/icon1.png')}}" style="width: 40px; height: 40px;" >
+                <img src="{{asset('images/icon1.png')}}" style="width: 40px; height: 40px;" >
             @else
                 <img src="{{asset('storage/' . auth::User()->icon_image)}}" style="width: 40px; height: 40px;">
             @endif
@@ -20,15 +20,15 @@
         <!-- $arrayからuserテーブルを呼び出す、そこからusernameを呼び出す -->
         <div class="content">
             <p class="cont">{{ $value->user->username }}</p>
-            <p class="cont">{{ $value->post }}</p>
-            @if($value->icon_image === 'icon1.png')
+            <p class="cont">{!! nl2br(e($value->post)) !!}</p>
+            @if(Auth::User()->icon_image == 'icon1.png')
             <!-- ログインしているユーザーのイメージ画像がアイコン1だったらカラム名(icon_image) -->
-            <img src="{{asset('icon_images/icon1.png')}}" id="pstIcon" style="width: 40px; height: 40px;" >
+            <img src="{{asset('images/icon1.png')}}" id="pstIcon" style="width: 40px; height: 40px;" >
             @else
             <img src="{{ asset('storage/' . $value->user->icon_image) }}" id="pstIcon" style="width: 40px; height: 40px;">
             <!-- .は結合演算子。ストレージにある画像から実際にユーザーが登録した画像を表示させてね -->
             @endif
-            <p class="date">{{ $value->created_at }}</p>
+            <p class="date">{{ $value->created_at->format('Y-m-d H:i') }}</p>
 
             @if ($errors->any())
             <div class="alert alert-danger">

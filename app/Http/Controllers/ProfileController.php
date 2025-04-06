@@ -39,12 +39,6 @@ class ProfileController extends Controller
         $validatedData['password'] = Hash::make($request->password);
     }
 
-    // // 自己紹介の変更
-    // if ($request->filled('bio'))
-    // {
-    //     // $validatedData['bio'] = ;
-    // }
-
     // 画像アップロード処理
     if ($request->hasFile('icon_image'))
     {

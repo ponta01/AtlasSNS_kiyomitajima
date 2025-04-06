@@ -29,8 +29,8 @@
             <!-- .は結合演算子。ストレージにある画像から実際にユーザーが登録した画像を表示させてね -->
             @endif
             <p class="cont">{{ $value->user->username }}</p>
-            <p class="cont">{{ $value->post }}</p>
-            <p class="date">{{ $value->created_at }}</p>
+            <p class="cont">{!! nl2br(e($value->post)) !!}</p>
+            <p class="date">{{ $value->created_at->format('Y-m-d H:i') }}</p>
         </div>
         @endforeach
 

@@ -26,15 +26,15 @@
         {{ Form::email('email',null,['class' => 'input']) }}
 
         <p class="label">{{ Form::label('パスワード') }}</p>
-        {{ Form::text('password',null,['class' => 'input']) }}
+        {{ Form::password('password',null,['class' => 'input']) }}
 
         <p class="label">{{ Form::label('パスワード確認') }}</p>
-        {{ Form::text('password_confirmation',null,['class' => 'input']) }}
+        {{ Form::password('password_confirmation',null,['class' => 'input']) }}
 
-        <button type="submit" class="btn btn-danger" style="width: 50%;">新規登録</button>
+        <button type="submit" class="btn btn-danger" style="width: 40%;">新規登録</button>
         {!! Form::close() !!}
 
-        <p class="register-link"><a href="/">ログイン画面に戻る</a></p>
+        <p class="register-link"><a href="/login">ログイン画面に戻る</a></p>
 
         </div>
     </body>

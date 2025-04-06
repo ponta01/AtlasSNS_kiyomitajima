@@ -43,7 +43,7 @@ header {
     top: 18px;
     right: 30px;
     width: 80px;
-    height: 80px;
+    height: 70px;
     border-radius: 50%;
 }
 
@@ -57,7 +57,7 @@ header {
 
 .post img {
     position: absolute;
-    left: 70px;
+    left: 2%;
     /* アイコン画像を左に移動 */
     margin-right: 10px;
     /* テキストエリアとの間に余白を追加 */
@@ -207,7 +207,7 @@ header {
 
 
 .content {
-    padding: 40px;
+    padding: 25px;
     width: 100%;
     border-bottom: solid 1px #00297e;
     position: relative;
@@ -261,13 +261,12 @@ header {
     top: 40%;
     transform: translate(-50%, -50%);
     width: 30%;
-    height: 25%;
+    height: 35%;
     border-radius: 15px;
 }
 
 .modal_update{
     width: 100%;
-    height: 90%;
     border: 1px solid #727272;
 }
 
@@ -282,6 +281,7 @@ header {
 }
 
 #iconProf {
+    position: absolute;
     margin: 130px 0px 0 200px;
 }
 
@@ -384,7 +384,7 @@ header {
 }
 
 #userProf{
-    margin: 10px 30px 30px 300px;
+    margin: 10px 30px 30px 10px;
 }
 
 .userPro{

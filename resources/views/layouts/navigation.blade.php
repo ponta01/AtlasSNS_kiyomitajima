@@ -18,5 +18,9 @@
                 </ul>
         </div>
     </div>
-    <img src="{{asset('storage/' . auth::User()->icon_image)}}" id="icon">
+        @if(Auth::User()->icon_image === 'icon1.png')
+            <img src="{{asset('images/icon1.png')}}" id="icon" >
+        @else
+            <img src="{{asset('storage/' . auth::User()->icon_image)}}" id="icon">
+        @endif
 </div>

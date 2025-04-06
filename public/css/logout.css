@@ -18,26 +18,26 @@
 .welcome-message{
     text-align: center;
     color: #ffffff;
-    margin-right: 25%;
+    margin-right: 12%;
 }
 
 .container {
-    margin: 0 30% 0 42%;
-    padding: 40px 50px 40px 50px; /* ←テキストの上→右→下→左の余白を設定 */
+    margin: 0 10% 0 37%;
+    padding: 40px 30px 40px 30px; /* ←テキストの上→右→下→左の余白を設定 */
     border: 1px solid #3c4767;
     border-radius: 15px;
     border: 1px solid transparent;
-    width: 17%;
+    width: 25%;
     color: black;
     background-color: rgba(128, 128, 128, 0.3);
 }
 
 .label{
-    margin: 0% 10% 10% 10%;
+    margin: 0% 0% 10% 18%;
 }
 
 .btn{
-    margin: 0% 10% 10% 30%;
+    margin: 0% 10% 10% 50%;
 }
 
 .loginBtn{
@@ -60,6 +60,7 @@ body {
     height: 100vh;
     background-image: linear-gradient(0deg, #ffe32d 0%, #227acc 100%);
     color: black;
+    height: 100%;
 
 }
 
@@ -68,11 +69,11 @@ body {
     text-decoration: underline;
     display: flex;
     flex-wrap: nowrap;
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
 input {
     display: block;
-    margin: 0% 10% 5% 10%;
+    margin: 0% 10% 5% 18%;
     border-radius: 5px;
 }

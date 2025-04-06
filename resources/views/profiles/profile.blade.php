@@ -1,11 +1,17 @@
 <x-login-layout>
   <div id="contentProf">
+
+      @if ($errors->any())
+          @foreach ($errors->all() as $error)
+          <p>{{ $error }}</p>
+          @endforeach
+      @endif
+
     <img src="{{ asset('storage/' . $user->icon_image) }}" id="iconProf" style="width: 40px; height: 40px;">
       <div class="table-center">
         <table class= "profileContent">
         <form action="{{ route('profileUpdate', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        </form>
 
           <tr>
             <td><label for="username" class="profile-label">ユーザー名:</label></td>
@@ -15,7 +21,7 @@
 
           <tr>
             <td><label for="email" class="profile-label">メールアドレス:</label></td>
-            <td><input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="admin@atlas.com" required>
+            <td><input type="email" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }}" placeholder="admin@atlas.com" required>
             <br></td>
           </tr>
 
@@ -46,7 +52,8 @@
             <br></td>
           </tr>
         </table>
-        <button type="submit" class="btn btn-danger" style="width: 150px;">更新</button></form>
+        <button type="submit" class="btn btn-danger" style="width: 150px;">更新</button>
+        </form>
       </div>
   </div>
 </x-login-layout>

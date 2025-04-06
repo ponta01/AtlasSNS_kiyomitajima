@@ -8,7 +8,7 @@
     <p class="added">ユーザー登録が完了しました。</p>
     <p class="added">早速ログインをしてみましょう。</p></div>
 
-    <p class="loginBtn"><a href="/login" class="btn btn-danger" style="width: 150%;">ログイン画面へ</a></p>
+    <p class="loginBtn"><a href="/" class="btn btn-danger" style="width: 150%;">ログイン画面へ</a></p>
   </div>
 
 </x-logout-layout>

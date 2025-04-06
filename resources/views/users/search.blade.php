@@ -8,7 +8,7 @@
         </form>
 
         @if(!empty($username))
-        <p class="search-word">検索ワード：{{$username}}</p>
+            <p class="search-word">検索ワード：{{$username}}</p>
         @endif
     </div>
 
@@ -18,22 +18,22 @@
         <!-- 自分をはじく用のif文 -->
         <div class="search-flex">
             <div class="search-icon">
-            <img src="{{ asset('storage/' . $value->icon_image) }}" style="width: 40px; height: 40px;">
-            <p>{{ $value->username }}</p>
+                <img src="{{ asset('storage/' . $value->icon_image) }}" style="width: 40px; height: 40px;">
+                <p>{{ $value->username }}</p>
             </div>
 
             <div class="search-follow">
-            @if (Auth::id() !== $value->id && Auth::user()->isFollowing($value->id)) <!-- ログインユーザーがフォローしている状態であるなら($userに格納されているidを取得してね) -->
-            <form action="{{ route('unfollow', ['id' => $value->id]) }}" method="POST">
+                @if (Auth::id() !== $value->id && Auth::user()->isFollowing($value->id)) <!-- ログインユーザーがフォローしている状態であるなら($userに格納されているidを取得してね) -->
+                <form action="{{ route('unfollow', ['id' => $value->id]) }}" method="POST">
                 @csrf
-            <button type="submit" class="btn btn-danger">フォロー解除</button>
-            </form>
-            @else
-            <form action="{{ route('follow', ['id' => $value->id]) }}" method="POST">
+                <button type="submit" class="btn btn-danger">フォロー解除</button>
+                </form>
+                @else
+                <form action="{{ route('follow', ['id' => $value->id]) }}" method="POST">
                 @csrf
-            <button type="submit" class="btn btn-primary">フォローする</button>
-            </form>
-            @endif
+                <button type="submit" class="btn btn-primary">フォローする</button>
+                </form>
+                @endif
             </div>
         </div>
         @endif

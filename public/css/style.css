@@ -126,11 +126,6 @@ header {
     width: 50%;
 }
 
-/* #sidebarButton{
-    top: 50px;
-    right: 100%;
-    width: 120px
-} */
 
 .followBtn{
     margin: 30px 0px 50px 200px;
@@ -218,10 +213,16 @@ header {
     position: relative;
 }
 
+#pstIcon{
+    position: absolute;
+    top: 28%;
+    left: 22%;
+}
+
 .cont{
     margin: 10px 10px 10px 10px;
     display: flex;
-    margin-left: 180px;
+    margin-left: 30%;
 }
 
 
@@ -259,27 +260,34 @@ header {
     position: absolute;
     top: 40%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 30%;
+    height: 25%;
+    border-radius: 15px;
 }
 
 .modal_update{
-    width: 800px;
-    height: 200px;
-    justify-content: center;
+    width: 100%;
+    height: 90%;
+    border: 1px solid #727272;
 }
 
+.editIcon{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+}
 
 #contentProf{
     display: flex;
 }
 
 #iconProf {
-    margin: 130px 0px 0 700px;
+    margin: 130px 0px 0 200px;
 }
 
 .table-center{
     position: absolute;
-    margin: 100px 300px 30px 800px;
+    margin: 100px 300px 30px 300px;
     text-align: center;
 }
 
@@ -311,7 +319,7 @@ header {
 }
 .search-wrapper {
     display: block;
-    margin: 50px 0 0 500px;
+    margin: 50px 0 0 50px;
     text-align: left;
 }
 
@@ -325,6 +333,7 @@ header {
 
 .search-flex{
     display: flex;
+    justify-content: space-around;
 }
 
 .search-icon{
@@ -349,33 +358,42 @@ header {
 
 .follow-title{
     font-size: xx-large;
-    margin: 30px 0px 10px 60px;
+    margin: 30px 60px 10px 60px;
 }
 
 .follow-icon-list{
+    display: flex;
     border-bottom: solid 8px #e0e0e0;
 }
 
 .follow-icon{
-    display: flex;
+    margin: 3% 0% 3% 3%;
 }
 
 .userProfile{
     display: flex;
     border-bottom: solid 8px #e0e0e0;
+    padding: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.userPro-wrapper{
+    display: block;
+    margin: 0% 10% 0% 5%;
 }
 
 #userProf{
-    margin: 30px 0 30px 300px;
+    margin: 10px 30px 30px 300px;
 }
 
 .userPro{
     display: block;
     flex-wrap: wrap;
-    margin: 30px 0 30px 100px;
 }
 
 .userFollow{
+    margin: 15% 3% 3% 300%;
     justify-content: right;
 }
 

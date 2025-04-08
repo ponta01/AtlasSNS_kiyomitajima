@@ -21,7 +21,7 @@
         <div class="content">
             <p class="cont">{{ $value->user->username }}</p>
             <p class="cont">{!! nl2br(e($value->post)) !!}</p>
-            @if(Auth::User()->icon_image == 'icon1.png')
+            @if($value->user->icon_image === 'icon1.png')
             <!-- ログインしているユーザーのイメージ画像がアイコン1だったらカラム名(icon_image) -->
             <img src="{{asset('images/icon1.png')}}" id="pstIcon" style="width: 40px; height: 40px;" >
             @else

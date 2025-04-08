@@ -2,11 +2,16 @@
 
     <div class="userProfile">
     @foreach($users as $value)
+        @if($value->icon_image === 'icon1.png')
+            <!-- ユーザーのイメージ画像がアイコン1だったらカラム名(icon_image) -->
+            <a href="{{route('usersProfile',['id' =>$value->id])}}"><img src="{{asset('images/icon1.png')}}" id="follows-icon" style="width: 40px; height: 40px;" ></a>
+        @else
         <img src="{{ asset('storage/' . $value->icon_image) }}" id="userProf" style="width: 40px; height: 40px;">
         <div class="userPro-wrapper">
             <p class="userPro">{{ $value->username }}</p>
             <p class="userPro">{{ $value->bio }}</p>
         </div>
+        @endif
     @endforeach
 
     @foreach ($users as $user)
@@ -26,12 +31,12 @@
 
     @foreach($posts as $value)
         <div class="content">
-        @if(Auth::User()->icon_image === 'icon1.png')
+        @if($value->user->icon_image === 'icon1.png')
             <!-- ログインしているユーザーのイメージ画像がアイコン1だったらカラム名(icon_image) -->
-            <a href="{{route('usersProfile',['id' =>$value->id])}}"></a>
-            <img src="{{asset('images/icon1.png')}}" id="pstIcon" style="width: 40px; height: 40px;" >
+            <a href="{{route('usersProfile',['id' =>$value->id])}}"><img src="{{asset('images/icon1.png')}}" id="pstIcon" style="width: 40px; height: 40px;" ></a>
         @else
-            <img src="{{asset('storage/' . $value->user->icon_image)}}"  id="pstIcon" style="width: 40px; height: 40px;">
+            <a href="{{route('usersProfile',['id' =>$value->id])}}">
+            <img src="{{ asset('storage/' . $value->user->icon_image) }}" id="pstIcon" style="width: 40px; height: 40px;"></a>
             <!-- .は結合演算子。ストレージにある画像から実際にユーザーが登録した画像を表示させてね -->
         @endif
             <p class="cont" >{{ $value->user->username }}</p>

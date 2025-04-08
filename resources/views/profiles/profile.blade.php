@@ -7,7 +7,13 @@
           @endforeach
       @endif
 
-    <img src="{{ asset('storage/' . $user->icon_image) }}" id="iconProf" style="width: 40px; height: 40px;">
+      @if(Auth::User()->icon_image === 'icon1.png')
+            <!-- ログインしているユーザーのイメージ画像がアイコン1だったらカラム名(icon_image) -->
+        <img src="{{asset('images/icon1.png')}}" id="iconProf" style="width: 40px; height: 40px;" >
+      @else
+        <img src="{{ asset('storage/' . $user->icon_image) }}" id="iconProf" style="width: 40px; height: 40px;">
+      @endif
+
       <div class="table-center">
         <table class= "profileContent">
         <form action="{{ route('profileUpdate', $user->id) }}" method="POST" enctype="multipart/form-data">

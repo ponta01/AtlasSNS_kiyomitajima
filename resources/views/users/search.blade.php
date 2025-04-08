@@ -18,7 +18,11 @@
         <!-- 自分をはじく用のif文 -->
         <div class="search-flex">
             <div class="search-icon">
+            @if($value->icon_image === 'icon1.png')
+                <a href="{{route('usersProfile',['id' =>$value->id])}}"><img src="{{asset('images/icon1.png')}}" style="width: 40px; height: 40px;" ></a>
+            @else
                 <img src="{{ asset('storage/' . $value->icon_image) }}" style="width: 40px; height: 40px;">
+            @endif
                 <p>{{ $value->username }}</p>
             </div>
 

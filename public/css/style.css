@@ -121,14 +121,14 @@ header {
     margin-top: 10px;
     display: flex;
     color: black;
-    font-size: 20px;
+    font-size: 15px;
     justify-content: space-around;
     width: 50%;
 }
 
 
 .followBtn{
-    margin: 30px 0px 50px 200px;
+    margin: 30px 0px 50px 90px;
     width: 120px
 }
 
@@ -184,7 +184,7 @@ header {
     position: absolute;
     top: 100px;
     right: 1px;
-    width: 10%;
+    width: 20%;
     z-index: 10;
 }
 
@@ -247,7 +247,7 @@ header {
 }
 
 .modal__bg {
-    background: rgba(0, 0, 0, 0.8);
+    background-color: rgba(220, 220, 220, 0.2);
     height: 200vh;
     position: absolute;
     width: 100%;
@@ -282,12 +282,12 @@ header {
 
 #iconProf {
     position: absolute;
-    margin: 130px 0px 0 200px;
+    margin: 130px 0px 0 50px;
 }
 
 .table-center{
     position: absolute;
-    margin: 100px 300px 30px 300px;
+    margin: 100px 80px 30px 80px;
     text-align: center;
 }
 
@@ -307,6 +307,25 @@ header {
 .form-control{
     background-color: #efefef;
     color: black;
+}
+
+#form_image{
+    justify-content: center; /* 横中央揃え */
+    align-items: center; /* 縦中央揃え */
+}
+
+input[type="image_icon"] {
+    display: none;
+}
+
+.form-controller{
+    display: flex;
+    background-color: #efefef; /* 白い背景色 */
+    border: 1px solid #efefef; /* 四角い枠（少し小さめに調整可） */
+    width: 200px; /* 四角い枠の幅調整例 */
+    height: 80px; /* 四角い枠の高さ調整例 */
+    border-radius: 5px; /* 角を少し丸める場合 */
+    color: transparent;
 }
 
 .btn btn-danger{
@@ -340,7 +359,19 @@ header {
     margin-top: 30px;
     display: flex;
     padding-left: 100px;
+    align-items: center;
+    justify-content: center;
 }
+
+#searchIcon{
+    margin-right: 20px;
+    align-items: center;
+}
+
+.username{
+    align-items: center;
+}
+
 .search-follow{
     margin-top: 30px;
     display: block;

@@ -17,6 +17,7 @@ return [
         'username'  => 'ユーザー名',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
+        'password_confirmation'=> 'パスワード確認',
         'bio' => '自己紹介'],
 
     'accepted' => 'The :attribute must be accepted.',
@@ -38,7 +39,7 @@ return [
         'string' => 'The :attribute must be between :min and :max characters.',
     ],
     'boolean' => 'The :attribute field must be true or false.',
-    'confirmed' => 'The :attribute は確認用の値が一致していません。',
+    'confirmed' => ':attribute は確認用の値が一致していません。',
     'current_password' => 'The password is incorrect.',
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
@@ -53,7 +54,7 @@ return [
     'distinct' => 'The :attribute field has a duplicate value.',
     'doesnt_end_with' => 'The :attribute may not end with one of the following: :values.',
     'doesnt_start_with' => 'The :attribute may not start with one of the following: :values.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => ':attributeは有効なメールアドレスである必要があります。',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'enum' => 'The selected :attribute is invalid.',
     'exists' => 'The selected :attribute is invalid.',
@@ -97,16 +98,16 @@ return [
         'array' => 'The :attribute must not have more than :max items.',
         'file' => 'The :attribute must not be greater than :max kilobytes.',
         'numeric' => 'The :attribute must not be greater than :max.',
-        'string' => 'The :attribute は20文字を超えてはいけません。',
+        'string' => ':attribute は20文字を超えてはいけません。',
     ],
     'max_digits' => 'The :attribute must not have more than :max digits.',
     'mimes' => 'The :attribute must be a file of type: :values.',
-    'mimetypes' => 'The :attribute must be a file of type: :values.',
+    'mimetypes' => ':attribute must be a file of type: :values.',
     'min' => [
         'array' => 'The :attribute must have at least :min items.',
         'file' => 'The :attribute must be at least :min kilobytes.',
         'numeric' => 'The :attribute must be at least :min.',
-        'string' => 'The :attribute は最低でも8文字以上である必要があります。',
+        'string' => ':attribute は最低でも8文字以上である必要があります。',
     ],
     'min_digits' => 'The :attribute must have at least :min digits.',
     'missing' => 'The :attribute field must be missing.',
@@ -130,8 +131,8 @@ return [
     'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
-    'regex' => 'The :attribute は形式が無効です。',
-    'required' => 'The :attribute 欄は必須です。',
+    'regex' => ':attribute は形式が無効です。',
+    'required' => ':attribute 欄は必須です。',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',
@@ -140,7 +141,7 @@ return [
     'required_with_all' => 'The :attribute field is required when :values are present.',
     'required_without' => 'The :attribute field is required when :values is not present.',
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
-    'same' => 'The :attribute and :other が一致していません。',
+    'same' => ':attribute と :other が一致していません。',
     'size' => [
         'array' => 'The :attribute must contain :size items.',
         'file' => 'The :attribute must be :size kilobytes.',
@@ -185,6 +186,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => ['username'  => 'ユーザー名',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+        'password_confirmation'=> 'パスワード確認',
+        'bio' => '自己紹介'],
 
 ];

@@ -7,11 +7,11 @@
             <a href="{{route('usersProfile',['id' =>$value->id])}}"><img src="{{asset('images/icon1.png')}}" id="follows-icon" style="width: 40px; height: 40px;" ></a>
         @else
         <img src="{{ asset('storage/' . $value->icon_image) }}" id="userProf" style="width: 40px; height: 40px;">
+        @endif
         <div class="userPro-wrapper">
             <p class="userPro">{{ $value->username }}</p>
             <p class="userPro">{{ $value->bio }}</p>
         </div>
-        @endif
     @endforeach
 
     @foreach ($users as $user)

@@ -13,7 +13,7 @@
         <p class="welcome-message">新規ユーザー登録</p>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-            <p>{{ $error }}</p>
+            <p class="validation">{{ str_replace(':attribute', trans('validation.attributes.' . explode(' ', $error)[0]), $error) }}</p>
             @endforeach
         @endif
 

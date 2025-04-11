@@ -45,13 +45,13 @@
 
           <tr>
             <td><label for="bio" class="profile-label">自己紹介:</label></td>
-            <td><input type="bio" class="form-control" id="bio" name="bio" value="{{ old('bio', $user->bio) }}" placeholder="Laravelの勉強をしています。" required>
+            <td><input type="bio" class="form-control" id="bio" name="bio" value="{{ old('bio', $user->bio) }}" placeholder="Laravelの勉強をしています。">
             <br></td>
           </tr>
 
           <tr>
-            <td><label for="icon_image" class="profile-label">アイコン画像:</label></td>
-            <td><input type="file" class="form-control" id="icon_image" name="icon_image">
+            <td><label for="form_image" class="profile-label">アイコン画像:</label></td>
+            <td><input type="file" class="form-control form-controller" id="form_image" name="icon_image">
             @if ($user->icon_image)
             <br>現在の画像: <img src="{{ asset('storage/' . $user->icon_image) }}" alt="アイコン画像" style="width: 100px; height: 100px;">
             @endif

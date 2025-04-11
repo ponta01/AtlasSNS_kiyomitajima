@@ -10,6 +10,10 @@
     color: #ffffff;
 }
 
+.validation{
+    color: red;
+}
+
 .titleTop{
     margin: 10% 30% 0 30%;
     text-align: center;
@@ -22,7 +26,7 @@
 }
 
 .container {
-    margin: 0 10% 0 37%;
+    margin: 0 10% 20% 37%;
     padding: 40px 30px 40px 30px; /* ←テキストの上→右→下→左の余白を設定 */
     border: 1px solid #3c4767;
     border-radius: 15px;
@@ -50,6 +54,7 @@
 
 .margin{
     margin-top: 30px;
+    margin-left: 20%;
 }
 
 .textCenter{

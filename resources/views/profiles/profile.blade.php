@@ -3,7 +3,7 @@
 
       @if ($errors->any())
           @foreach ($errors->all() as $error)
-          <p>{{ $error }}</p>
+          <p class="error-messages">{{ $error }}</p>
           @endforeach
       @endif
 

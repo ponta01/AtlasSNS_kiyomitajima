@@ -100,7 +100,7 @@ header {
 }
 
 #side-bar {
-    height: 130vh;
+    height: 200vh;
     width: 100vw;
     flex: 0 0 20%;
     border-left: 1px solid #727272;
@@ -325,6 +325,10 @@ input[type="image_icon"] {
     height: 80px; /* 四角い枠の高さ調整例 */
     color: transparent;
     padding: 30px 30px 30px 47px;
+}
+
+.error-messages{
+    color: red;
 }
 
 .btn btn-danger{

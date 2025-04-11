@@ -149,7 +149,7 @@ return [
         'string' => 'The :attribute must be :size characters.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string' => ':attributeは文字列でなければいけません。',
     'timezone' => 'The :attribute must be a valid timezone.',
     'unique' => ':attribute は既に使用されています。',
     'uploaded' => 'The :attribute failed to upload.',

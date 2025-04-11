@@ -30,7 +30,14 @@ class ProfileController extends Controller
         'email' => ['required', 'string', 'email', 'min:5', 'max:40'],
         'password' => ['required', 'regex:/^[a-zA-Z0-9]+$/', 'min:8', 'max:20', 'confirmed'],
         'bio' => ['string', 'max:150'],
-        'icon_image' => ['nullable', 'image', 'mimes:bmp,png,jpg,gif,svg'], // 修正済み
+        'icon_image' => ['nullable', 'image', 'mimes:bmp,png,jpg,gif,svg'],  ],[
+            'username.min' => 'ユーザー名は2文字以上です。',
+		    'username.max' => 'ユーザー名は12文字以下です。',
+		    'email.min' => 'メールアドレスは5文字以上です。',
+            'email.max' => 'メールアドレスは40文字以下です。',
+            'password.min' => 'パスワードは8文字以上です。',
+		    'password.max' => 'パスワードは20文字以下です。',
+		    'bio.max' => '自己紹介は150文字以下です。',
         ]);
 
     // パスワードは必ずハッシュ化

@@ -100,7 +100,7 @@ header {
 }
 
 #side-bar {
-    height: 100vh;
+    height: 130vh;
     width: 100vw;
     flex: 0 0 20%;
     border-left: 1px solid #727272;
@@ -118,7 +118,7 @@ header {
 }
 
 .followCount{
-    margin-top: 10px;
+    margin: 10px 0 0 10px;
     display: flex;
     color: black;
     font-size: 15px;
@@ -309,11 +309,6 @@ header {
     color: black;
 }
 
-#form_image{
-    justify-content: center; /* 横中央揃え */
-    align-items: center; /* 縦中央揃え */
-}
-
 input[type="image_icon"] {
     display: none;
 }
@@ -324,8 +319,8 @@ input[type="image_icon"] {
     border: 1px solid #efefef; /* 四角い枠（少し小さめに調整可） */
     width: 200px; /* 四角い枠の幅調整例 */
     height: 80px; /* 四角い枠の高さ調整例 */
-    border-radius: 5px; /* 角を少し丸める場合 */
     color: transparent;
+    padding: 30px 30px 30px 47px;
 }
 
 .btn btn-danger{

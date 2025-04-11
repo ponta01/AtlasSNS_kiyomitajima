@@ -34,8 +34,14 @@ class RegisteredUserController extends Controller
             'username' => ['required', 'min:2', 'max:12', 'unique:users'],
             'email' => ['required', 'email', 'min:5', 'max:40', 'unique:users'],
             'password' => ['required', 'regex:/^[a-zA-Z0-9]+$/','min:8', 'max:20', 'confirmed', Rules\Password::defaults()],
-            'password_confirmation' => ['required', 'regex:/^[a-zA-Z0-9]+$/','min:8', 'max:20','same:password'],
-        ]);
+            'password_confirmation' => ['required', 'regex:/^[a-zA-Z0-9]+$/','min:8', 'max:20','same:password'], ],[
+            'username.min' => 'ユーザー名は2文字以上です。',
+		    'username.max' => 'ユーザー名は12文字以下です。',
+		    'email.min' => 'メールアドレスは5文字以上です。',
+            'email.max' => 'メールアドレスは40文字以下です。',
+            'password.min' => 'パスワードは8文字以上です。',
+		    'password.max' => 'パスワードは20文字以下です。',
+            ]);
 
         $user = User::create([
             'username' => $request->username,
@@ -44,6 +50,7 @@ class RegisteredUserController extends Controller
         ]);
         return redirect()->route('user.login')->with('username', $user->username);
     }
+
 
     public function added(): View
     {

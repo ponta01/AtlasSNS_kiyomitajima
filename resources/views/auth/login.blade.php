@@ -23,15 +23,19 @@
     {!! Form::open(['url' => '/login', 'method' => 'POST']) !!}
       <p class="label">{{ Form::label('メールアドレス') }}</p>
       {{ Form::text('email',null,['class' => 'input']) }}
+      <div class="error-messages">
     @if ($errors->has('email'))
         <p>{{ $errors->first('email') }}</p>
     @endif
+    </div>
 
       <p class="label">{{ Form::label('パスワード') }}</p>
       {{ Form::password('password',['class' => 'input']) }}
+    <div class="error-messages">
     @if ($errors->has('password'))
         <p>{{ $errors->first('password') }}</p>
     @endif
+    </div>
 
       <button type="submit" class="btn btn-danger" style="width: 40%;">ログイン</button>
     {!! Form::close() !!}

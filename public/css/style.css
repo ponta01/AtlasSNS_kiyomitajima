@@ -211,6 +211,9 @@ header {
     width: 100%;
     border-bottom: solid 1px #00297e;
     position: relative;
+    word-wrap: break-word; /* 長い単語を強制的に折り返す */
+    word-break: break-word; /* サポートされていないブラウザ用 */
+    white-space: normal; /* テキストを通常の折り返しモードに */
 }
 
 #pstIcon{
@@ -307,6 +310,7 @@ header {
 .form-control{
     background-color: #efefef;
     color: black;
+    border-radius: 0;
 }
 
 input[type="image_icon"] {
@@ -421,6 +425,10 @@ input[type="image_icon"] {
 .userFollow{
     margin: 15% 3% 3% 300%;
     justify-content: right;
+}
+
+#follows-icon {
+    margin-right: 20px;
 }
 
 .postProf{

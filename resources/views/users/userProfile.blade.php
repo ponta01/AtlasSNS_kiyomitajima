@@ -8,6 +8,10 @@
         @else
         <img src="{{ asset('storage/' . $value->icon_image) }}" id="userProf" style="width: 40px; height: 40px;">
         @endif
+        <div class="user-wrapper">
+            <p class="userPro">ユーザー名</p>
+            <p class="userPro">自己紹介</p>
+        </div>
         <div class="userPro-wrapper">
             <p class="userPro">{{ $value->username }}</p>
             <p class="userPro">{{ $value->bio }}</p>

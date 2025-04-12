@@ -100,7 +100,7 @@ header {
 }
 
 #side-bar {
-    height: 200vh;
+    height: 2000vh;
     width: 100vw;
     flex: 0 0 20%;
     border-left: 1px solid #727272;

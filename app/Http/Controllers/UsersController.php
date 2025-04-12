@@ -13,14 +13,14 @@ class UsersController extends Controller
     // }
     //
     public function search(Request $request){
-        // キーワードを取得
-        $keyword = $request->input('keyword');
+        // 1つ目の処理
+        $username = $request->input('username');
         // 2つ目の処理
-        $results = User::where('last_name', 'LIKE', "%{$keyword}%")
-                   ->orWhere('first_name', 'LIKE', "%{$keyword}%")
-                   ->orWhere('last_name_kana', 'LIKE', "%{$keyword}%")
-                   ->orWhere('first_name_kana', 'LIKE', "%{$keyword}%")
-                   ->get();
+        if(!empty($username)){
+        $users = User::where('username','like', '%'.$username.'%')->get();
+        }else{
+        $users = User::all();
+        }
         // 3つ目の処理
         return view('users.search',['users'=>$users, 'username'=>$username]);
     }
